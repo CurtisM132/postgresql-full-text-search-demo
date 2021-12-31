@@ -23,6 +23,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+![Product Name Screen Shot][product-screenshot]
+
 ### Built With
 
 * [Go](https://go.dev/)
@@ -33,8 +35,6 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
@@ -54,3 +54,4 @@ To get a local copy up and running follow these simple example steps.
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in//curtismartin3
+[product-screenshot]: demo.png
