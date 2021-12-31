@@ -1,6 +1,7 @@
 package search
 
 import (
+	"database/sql"
 	"fmt"
 	"html/template"
 	"strings"
@@ -27,27 +28,33 @@ rank DESC;`
 type TextSearch struct{}
 
 func (s *TextSearch) NewSearch(searchText string) (*SearchResults, error) {
-	data, err := s.searchDB(searchText)
-	if err != nil {
-		fmt.Println(err)
-		return nil, err
-	}
-
-	return data, nil
-}
-
-func (s *TextSearch) searchDB(searchText string) (*SearchResults, error) {
 	db, err := connectToDB()
 	if err != nil {
 		return nil, fmt.Errorf("failed to connect to DB: %s", err)
 	}
 
+	rows, err := s.searchDB(db, searchText)
+	if err != nil {
+		return nil, err
+	}
+
+	return s.formatSearchResults(rows)
+}
+
+// Search the DB using the pre-formatted SQL query and search text
+func (s *TextSearch) searchDB(db *sql.DB, searchText string) (*sql.Rows, error) {
 	// Query the database
 	query := fmt.Sprintf(fullTextSearchQuery, searchText)
 	rows, err := db.Query(query)
 	if err != nil {
 		return nil, fmt.Errorf("failed to execute search query: %s", err)
 	}
+
+	return rows, nil
+}
+
+// Format the search results
+func (s *TextSearch) formatSearchResults(rows *sql.Rows) (*SearchResults, error) {
 	defer rows.Close()
 
 	// Format the returned rows from the query
