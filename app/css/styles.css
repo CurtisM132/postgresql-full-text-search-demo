@@ -1,0 +1,38 @@
+.landing-page-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-page-title {
+    font-size: 5rem;
+}
+
+.landing-page-search {
+    position: relative;
+    left: 25px;
+
+    width: 400px;
+    height: 2rem;
+}
+
+.search-results-container {
+    width: 800px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+.search-no-results {
+    font-size: 2rem;
+
+    text-align: center;
+}

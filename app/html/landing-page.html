@@ -1,0 +1,10 @@
+{{define "landingPage"}}
+<div class="landing-page-container">
+    <h1 class="landing-page-title">Scenes of Shakespeare</h1>
+
+    <form action="/search" method="post">
+        <input class="landing-page-search" type="text" id="search" name="search" autofocus>
+        <input type="submit" style="visibility: hidden;" />
+    </form>
+</div>
+{{end}}

@@ -1,0 +1,26 @@
+{{define "index"}}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="css/styles.css" type="text/css" rel="stylesheet">
+
+    <title>Scenes of Shakespeare</title>
+</head>
+
+<body>
+    <div class="landing-page-container">
+        <h1 class="landing-page-title">Scenes of Shakespeare</h1>
+    
+        <form class="landing-page-search" action="/search" method="post">
+            <input type="text" id="search" name="search" autofocus>
+            <input type="submit" style="visibility: hidden;" />
+        </form>
+    </div>
+</body>
+
+</html>
+{{end}}

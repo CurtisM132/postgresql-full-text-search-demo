@@ -1,0 +1,52 @@
+{{define "searchResults"}}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="css/styles.css" type="text/css" rel="stylesheet">
+
+    <title>Scenes of Shakespeare</title>
+</head>
+
+<body>
+    <div class="landing-page-container">
+        <h1 class="landing-page-title">Scenes of Shakespeare</h1>
+    
+        <form action="/search" method="post">
+            <input class="landing-page-search" type="text" id="search" name="search" autofocus>
+            <input type="submit" style="visibility: hidden;" />
+        </form>
+
+        <div class="search-results-container">
+            {{if .Rows}}
+                <table style="width:100%">
+                    <tr>
+                        <th>Play</th>
+                        <th>Act</th>
+                        <th>Scene</th>
+                        <th>Text</th>
+                    </tr>
+
+                    {{range .Rows}}
+                        <tr>
+                            <td style="text-align: center">{{.WorkID}}</td>
+                            <td style="text-align: center">{{.Act}}</td>
+                            <td style="text-align: center">{{.Scene}}</td>
+                            <td>
+                                <div>{{.HTMLResult}}</div>
+                            </td>
+                        </tr>
+                    {{end}}
+                </table>
+            {{else}}
+                <div class="search-no-results">No Results</div>
+            {{end}}
+        </div>
+    </div>
+</body>
+
+</html>
+{{end}}
